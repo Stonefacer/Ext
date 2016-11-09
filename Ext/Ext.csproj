@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1D42B811-C029-41FE-8B5E-748F41025709}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Ext</RootNamespace>
+    <AssemblyName>Ext</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>NET40;NET35;EXT_BIGINT;</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v3.5' ">NET35</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.0' ">NET40;NET35</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.5' ">NET45;NET40;NET35</DefineConstants>
+    <DefineConstants Condition=" '$(TargetFrameworkVersion)' == 'v4.6' ">NET46;NET45;NET40;NET35</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NET35;NET40;EXT_BIGINT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseClient|AnyCPU'">
+    <OutputPath>bin\ReleaseClient\</OutputPath>
+    <DefineConstants>TRACE;__CLIENT__</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>ExtLibrary.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonForms\frmKeyDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\frmKeyDialog.Designer.cs">
+      <DependentUpon>frmKeyDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonForms\frmLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonForms\frmLoading.Designer.cs">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\BitSaver.cs" />
+    <Compile Include="Data\DataSaverFactory.cs" />
+    <Compile Include="Data\ExtBitConverter.cs" />
+    <Compile Include="Data\IDataSaver.cs" />
+    <Compile Include="Data\PlainTextDataSaver.cs" />
+    <Compile Include="System\Collections\ColorIndex.cs" />
+    <Compile Include="System\Core\Permutations\PermutationsIterator.cs" />
+    <Compile Include="System\Core\Progress\DefaultProgress.cs" />
+    <Compile Include="System\Core\Delegates.cs" />
+    <Compile Include="System\Core\Progress\IParameterizedProgress.cs" />
+    <Compile Include="System\Core\Progress\IProgress.cs" />
+    <Compile Include="System\Core\Progress\ParameterizedProgress.cs" />
+    <Compile Include="System\Core\RandomFactory.cs" />
+    <Compile Include="System\Drawing\ColorAndImageFactory.cs" />
+    <Compile Include="System\Drawing\ColorComparator.cs" />
+    <Compile Include="System\Drawing\FixedSizeArea.cs" />
+    <Compile Include="Exceptions\FileCorruptedException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsTextBox.Designer.cs">
+      <DependentUpon>SettingsTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System\Collections\Ext.cs" />
+    <Compile Include="System\Collections\ExtBitArray.cs" />
+    <Compile Include="System\Collections\Generic\Ext.cs" />
+    <Compile Include="System\Core\AdvMath.cs" />
+    <Compile Include="System\Core\Ext.cs" />
+    <Compile Include="System\Core\PimitiveProt.cs" />
+    <Compile Include="System\Core\SpeedCounter.cs" />
+    <Compile Include="System\Drawing\ImageOptimizer.cs" />
+    <Compile Include="System\Drawing\Pixel.cs" />
+    <Compile Include="System\IO\BitStream.cs" />
+    <Compile Include="System\IO\Ext.cs" />
+    <Compile Include="System\Net\Ext.cs" />
+    <Compile Include="System\Net\WebPagesDownloader.cs" />
+    <Compile Include="System\Numerics\Ext.cs" />
+    <Compile Include="System\Security\RSA.cs" />
+    <Compile Include="System\Threading\Tasks\Ext.cs" />
+    <Compile Include="System\Windows\Forms\Ext.cs" />
+    <Compile Include="System\Windows\Forms\LinesIterator.cs" />
+    <Compile Include="Tree\BinaryTreeNode.cs" />
+    <Compile Include="Tree\BinaryTreeNodeSaver.cs" />
+    <Compile Include="Tree\HuffmanNode.cs" />
+    <Compile Include="Tree\IBinaryTreeNode.cs" />
+    <Compile Include="Tree\ITreeNode.cs" />
+    <Compile Include="Tree\TreeFactory.cs" />
+    <Compile Include="Workers\DefaultSettings.cs" />
+    <Compile Include="Workers\DefaultWorkerState.cs" />
+    <Compile Include="Workers\IWorker.cs" />
+    <Compile Include="Workers\IWorkerState.cs" />
+    <Compile Include="Workers\SettingsBase.cs" />
+    <Compile Include="Workers\UrlProcessedEventArgs.cs" />
+    <Compile Include="Workers\UrlProcessedInvoker.cs" />
+    <Compile Include="Workers\WorkerBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonForms\frmKeyDialog.resx">
+      <DependentUpon>frmKeyDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonForms\frmLoading.resx">
+      <DependentUpon>frmLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsTextBox.resx">
+      <DependentUpon>SettingsTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExtLibrary.pfx" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
